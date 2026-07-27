@@ -1,1 +1,38 @@
-Welcome to my personal page.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nikolaj Andersen — independent app developer.">
+  <title>Nikolaj Andersen — Apps</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #f7f7f5; --text: #1d1d1b; --muted: #686864; --card: #fff; --accent: #2457d6; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #151515; --text: #f4f4f1; --muted: #a8a8a1; --card: #20201f; --accent: #8eafff; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 2rem; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.5; }
+    main { width: min(100%, 42rem); }
+    .eyebrow { margin: 0 0 1rem; color: var(--accent); font-size: .875rem; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { max-width: 10ch; margin: 0; font-size: clamp(3rem, 10vw, 5.5rem); line-height: .96; letter-spacing: -.06em; }
+    p { max-width: 36rem; margin: 1.5rem 0 0; font-size: clamp(1.125rem, 2vw, 1.35rem); }
+    .muted { color: var(--muted); }
+    .card { margin-top: 3rem; padding: 1.5rem; border: 1px solid color-mix(in srgb, var(--text) 14%, transparent); border-radius: 1rem; background: var(--card); }
+    h2 { margin: 0; font-size: 1.125rem; }
+    .card p { margin-top: .5rem; font-size: 1rem; }
+    a { color: var(--accent); font-weight: 600; text-underline-offset: .18em; }
+    footer { margin-top: 3rem; color: var(--muted); font-size: .875rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Independent app developer</p>
+    <h1>Nikolaj Andersen</h1>
+    <p>I build focused apps for real, everyday problems.</p>
+    <section class="card" aria-labelledby="apps-heading">
+      <h2 id="apps-heading">Apps</h2>
+      <p class="muted">The first app is in development.</p>
+    </section>
+    <footer><a href="https://github.com/andersennl">GitHub</a></footer>
+  </main>
+</body>
+</html>
+
