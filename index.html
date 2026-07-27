@@ -19,6 +19,10 @@
     .card { margin-top: 3rem; padding: 1.5rem; border: 1px solid color-mix(in srgb, var(--text) 14%, transparent); border-radius: 1rem; background: var(--card); }
     h2 { margin: 0; font-size: 1.125rem; }
     .card p { margin-top: .5rem; font-size: 1rem; }
+    .apps { margin: 1rem 0 0; padding: 0; list-style: none; }
+    .apps li + li { margin-top: 1.25rem; }
+    .apps h3 { margin: 0; font-size: 1rem; }
+    .apps p { margin-top: .25rem; }
     a { color: var(--accent); font-weight: 600; text-underline-offset: .18em; }
     footer { margin-top: 3rem; color: var(--muted); font-size: .875rem; }
   </style>
@@ -29,7 +33,16 @@
     <p>I build focused apps for real, everyday problems.</p>
     <section class="card" aria-labelledby="apps-heading">
       <h2 id="apps-heading">Apps</h2>
-      <p class="muted">The first app is in development.</p>
+      <ul class="apps">
+        <li>
+          <h3><a href="clipboard/index.html">Clipboard</a></h3>
+          <p class="muted">Searchable clipboard history for macOS, one keystroke away.</p>
+        </li>
+      </ul>
+    </section>
+    <section class="card" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p class="muted">Questions, bug reports, or feature ideas are welcome: <a href="mailto:andersennlapps@icloud.com">andersennlapps@icloud.com</a></p>
     </section>
     <footer><a href="https://github.com/andersennl">GitHub</a></footer>
   </main>
