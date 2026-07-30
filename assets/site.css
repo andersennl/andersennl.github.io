@@ -232,9 +232,12 @@ main.home .lead { margin-top: 24px; max-width: 46ch; }
 .link-strong { font-size: 15px; font-weight: 500; }
 
 .badge { display: inline-block; margin-top: 28px; }
-.badge-inline { margin-top: 0; }
 .badge:hover { text-decoration: none; }
 .badge img { display: block; width: 156px; height: auto; }
+
+/* Scaled proportionally to match the button height beside it — no recrop, no restyle. */
+.badge-inline { margin-top: 0; }
+.badge-inline img { width: auto; height: 45px; }
 
 /* Feature grids */
 
