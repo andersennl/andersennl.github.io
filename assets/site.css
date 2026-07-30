@@ -235,9 +235,15 @@ main.home .lead { margin-top: 24px; max-width: 46ch; }
 .badge:hover { text-decoration: none; }
 .badge img { display: block; width: 156px; height: auto; }
 
-/* Scaled proportionally to match the button height beside it — no recrop, no restyle. */
+/* Kept at the asset's native 40px so its hairline outline stays on whole pixels.
+   The button beside it is matched to that height instead. */
 .badge-inline { margin-top: 0; }
-.badge-inline img { width: auto; height: 45px; }
+.actions .btn {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+}
 
 /* Feature grids */
 
