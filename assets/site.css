@@ -64,8 +64,11 @@ a:hover { color: var(--accent-dark); text-decoration: underline; text-underline-
 .wordmark-rule { width: 1px; height: 14px; background: rgba(25, 25, 23, .25); }
 .wordmark-tag { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
+/* Too wide to sit on one line on a phone, so it stacks under the name instead of hiding. */
 @media (max-width: 560px) {
-  .wordmark-rule, .wordmark-tag { display: none; }
+  .wordmark { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .wordmark-rule { display: none; }
+  .wordmark-tag { font-size: 10px; letter-spacing: .1em; }
 }
 
 /* Layout */
