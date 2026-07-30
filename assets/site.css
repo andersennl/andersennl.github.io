@@ -170,9 +170,9 @@ main.home .lead { margin-top: 24px; max-width: 46ch; }
 
 .actions {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
   margin-top: auto;
   padding-top: 12px;
 }
@@ -241,7 +241,7 @@ main.home .lead { margin-top: 24px; max-width: 46ch; }
 
 .badge-inline { margin-top: 0; }
 
-/* Integer height so the badge stacked beneath it starts on a whole pixel. */
+/* Integer height so it matches the badge's native 40px sitting next to it. */
 .actions .btn {
   display: inline-flex;
   align-items: center;
