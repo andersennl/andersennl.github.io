@@ -170,9 +170,9 @@ main.home .lead { margin-top: 24px; max-width: 46ch; }
 
 .actions {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
   margin-top: auto;
   padding-top: 12px;
 }
@@ -233,11 +233,15 @@ main.home .lead { margin-top: 24px; max-width: 46ch; }
 
 .badge { display: inline-block; margin-top: 28px; }
 .badge:hover { text-decoration: none; }
-.badge img { display: block; width: 156px; height: auto; }
 
-/* Kept at the asset's native 40px so its hairline outline stays on whole pixels.
-   The button beside it is matched to that height instead. */
+/* The asset is 156.10054 × 40. Pinning the height to its native 40px and letting the
+   width follow keeps the top and bottom edges on whole pixels — forcing a round 156px
+   width instead would rescale the whole badge by 0.9994 and soften its outline. */
+.badge img { display: block; width: auto; height: 40px; }
+
 .badge-inline { margin-top: 0; }
+
+/* Integer height so the badge stacked beneath it starts on a whole pixel. */
 .actions .btn {
   display: inline-flex;
   align-items: center;
