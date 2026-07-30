@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,79 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Paste Again — a searchable, local clipboard history for macOS that lives in your menu bar.">
   <title>Paste Again — Nikolaj Andersen</title>
-  <style>
-    :root { color-scheme: light dark; --bg: #f7f7f5; --text: #1d1d1b; --muted: #686864; --card: #fff; --accent: #2457d6; }
-    @media (prefers-color-scheme: dark) { :root { --bg: #151515; --text: #f4f4f1; --muted: #a8a8a1; --card: #20201f; --accent: #8eafff; } }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100svh; display: grid; justify-items: center; padding: 2rem; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.5; }
-    main { width: min(100%, 42rem); }
-    .eyebrow { margin: 0 0 1rem; color: var(--accent); font-size: .875rem; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
-    h1 { margin: 0; font-size: clamp(2.5rem, 8vw, 4rem); line-height: .98; letter-spacing: -.05em; }
-    p { max-width: 36rem; margin: 1.5rem 0 0; font-size: clamp(1.125rem, 2vw, 1.35rem); }
-    .muted { color: var(--muted); }
-    .card { margin-top: 2rem; padding: 1.5rem; border: 1px solid color-mix(in srgb, var(--text) 14%, transparent); border-radius: 1rem; background: var(--card); }
-    h2 { margin: 0; font-size: 1.125rem; }
-    .card p { margin-top: .5rem; font-size: 1rem; }
-    .features { margin: 1rem 0 0; padding: 0; list-style: none; }
-    .features li { margin-top: .875rem; font-size: 1rem; }
-    .features li:first-child { margin-top: 0; }
-    .features strong { display: block; font-weight: 650; }
-    .features span { color: var(--muted); }
-    .badge { margin-top: 2rem; display: inline-block; }
-    .badge img { display: block; width: 156px; height: auto; }
-    kbd { padding: .1em .4em; border: 1px solid color-mix(in srgb, var(--text) 20%, transparent); border-radius: .35rem; background: color-mix(in srgb, var(--text) 6%, transparent); font-family: inherit; font-size: .95em; }
-    a { color: var(--accent); font-weight: 600; text-underline-offset: .18em; }
-    .back { margin: 0 0 2rem; font-size: .875rem; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html">
+      <span class="wordmark-name">Nikolaj Andersen</span>
+      <span class="wordmark-rule"></span>
+      <span class="wordmark-tag">Apps for web and mobile</span>
+    </a>
+  </header>
+
   <main>
-    <nav class="back"><a href="../index.html">← Back to all apps</a> · <a href="privacy/">Privacy Policy</a></nav>
     <p class="eyebrow">macOS app</p>
     <h1>Paste Again</h1>
-    <p>Everything you copy stays within reach. Hit one shortcut, start typing, press <kbd>Enter</kbd> — the text lands right back where you were working.</p>
+    <p class="lead">Everything you copy stays within reach. Hit one shortcut, start typing, press <kbd>Enter</kbd> — the text lands right back where you were working.</p>
 
     <!-- Official Apple artwork from https://toolbox.marketingtools.apple.com, unaltered.
          The href is a placeholder — point it at the App Store product page at release.
          Do not restyle or recrop the badge:
          https://developer.apple.com/app-store/marketing/guidelines/ -->
     <a class="badge" href="https://andersennl.github.io">
-      <picture>
-        <source srcset="../assets/download-on-the-mac-app-store-white.svg" media="(prefers-color-scheme: dark)">
-        <img src="../assets/download-on-the-mac-app-store-black.svg" alt="Download on the Mac App Store" width="156" height="40">
-      </picture>
+      <img src="../assets/download-on-the-mac-app-store-black.svg" alt="Download on the Mac App Store" width="156" height="40">
     </a>
 
-    <section class="card" aria-labelledby="features-heading">
-      <h2 id="features-heading">What it does</h2>
-      <ul class="features">
-        <li>
-          <strong>Searchable history</strong>
-          <span>Every piece of text you copy is recorded in the background and stays fuzzy-searchable.</span>
-        </li>
-        <li>
-          <strong>One shortcut away</strong>
-          <span>A global shortcut opens the panel from any app. <kbd>⇧⌘V</kbd> by default, reassignable in settings.</span>
-        </li>
-        <li>
-          <strong>Pastes back for you</strong>
-          <span>Pick an entry and it is pasted straight into the app you came from — no window juggling.</span>
-        </li>
-        <li>
-          <strong>Keyboard-first</strong>
-          <span>Arrow keys to browse, <kbd>⌘C</kbd> to copy without pasting, <kbd>Esc</kbd> to dismiss. The mouse is optional.</span>
-        </li>
-        <li>
-          <strong>Out of the way</strong>
-          <span>Lives in the menu bar, can start at login if you want it to, and can be paused whenever you copy something private.</span>
-        </li>
-      </ul>
+    <img class="shot shot-wide" src="../assets/paste-again-history.png" alt="The Paste Again panel: a search field above a list of recently copied items, with the selected entry previewed beside it." width="1400" height="840">
+
+    <section class="grid" aria-label="What it does">
+      <div class="card">
+        <h2>Searchable history</h2>
+        <p>Every piece of text you copy is recorded in the background and stays fuzzy-searchable.</p>
+      </div>
+      <div class="card">
+        <h2>One shortcut away</h2>
+        <p>A global shortcut opens the panel from any app — <kbd>⇧⌘V</kbd> by default, reassignable in settings.</p>
+      </div>
+      <div class="card">
+        <h2>Pastes back for you</h2>
+        <p>Pick an entry and it is pasted straight into the app you came from — no window juggling.</p>
+      </div>
+      <div class="card">
+        <h2>Keyboard-first</h2>
+        <p>Arrow keys to browse, <kbd>⌘C</kbd> to copy without pasting, <kbd>Esc</kbd> to dismiss. The mouse is optional.</p>
+      </div>
+      <div class="card">
+        <h2>Out of the way</h2>
+        <p>Lives in the menu bar, starts at login if you want, and pauses whenever you copy something private.</p>
+      </div>
+      <div class="card card-accent">
+        <h2>Your clipboard stays yours</h2>
+        <p>Stored locally on your Mac. No account, no sync, no analytics. Content marked confidential by password managers is never recorded. <a href="privacy/index.html">Privacy policy</a></p>
+      </div>
     </section>
 
-    <section class="card" aria-labelledby="privacy-heading">
-      <h2 id="privacy-heading">Your clipboard stays yours</h2>
-      <p class="muted">The history is stored locally on your Mac. There is no account, no sync, and no analytics — nothing you copy ever leaves the device. Content that password managers mark as confidential is never recorded. <a href="privacy/">Read the privacy policy</a>.</p>
-    </section>
+    <div class="page-actions">
+      <a class="btn btn-ghost" href="../index.html">← All apps</a>
+    </div>
+
+    <footer class="site-footer">
+      <p>Independent apps by Nikolaj Andersen.</p>
+      <p class="links"><a href="mailto:andersen.nikolaj@icloud.com">andersen.nikolaj@icloud.com</a><a href="https://github.com/andersennl">GitHub</a></p>
+    </footer>
   </main>
 </body>
 </html>

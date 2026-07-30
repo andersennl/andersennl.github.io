@@ -3,50 +3,57 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Nikolaj Andersen — independent app developer.">
-  <title>Nikolaj Andersen — Apps</title>
-  <style>
-    :root { color-scheme: light dark; --bg: #f7f7f5; --text: #1d1d1b; --muted: #686864; --card: #fff; --accent: #2457d6; }
-    @media (prefers-color-scheme: dark) { :root { --bg: #151515; --text: #f4f4f1; --muted: #a8a8a1; --card: #20201f; --accent: #8eafff; } }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100svh; display: grid; justify-items: center; padding: 2rem; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.5; }
-    main { width: min(100%, 42rem); }
-    h1 { max-width: 10ch; margin: 0; font-size: clamp(3rem, 10vw, 5.5rem); line-height: .96; letter-spacing: -.06em; }
-    p { max-width: 36rem; margin: 1.5rem 0 0; font-size: clamp(1.125rem, 2vw, 1.35rem); }
-    .muted { color: var(--muted); }
-    .card { margin-top: 3rem; padding: 1.5rem; border: 1px solid color-mix(in srgb, var(--text) 14%, transparent); border-radius: 1rem; background: var(--card); }
-    h2 { margin: 0; font-size: 1.125rem; }
-    .card p { margin-top: .5rem; font-size: 1rem; }
-    .apps { margin: 1rem 0 0; padding: 0; list-style: none; }
-    .apps li + li { margin-top: 1.25rem; }
-    .apps h3 { margin: 0; font-size: 1rem; }
-    .apps p { margin-top: .25rem; }
-    a { color: var(--accent); font-weight: 600; text-underline-offset: .18em; }
-    .back { margin: 0 0 2rem; font-size: .875rem; }
-  </style>
+  <meta name="description" content="Apps by Nikolaj Andersen — independent software for real, everyday problems.">
+  <title>Apps by Nikolaj Andersen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <main>
-    <nav class="back"><a href="https://github.com/andersennl">GitHub</a></nav>
-    <h1>Nikolaj Andersen</h1>
-    <p>I build focused apps for real, everyday problems.</p>
-    <section class="card" aria-labelledby="apps-heading">
-      <h2 id="apps-heading">Apps</h2>
-      <ul class="apps">
-        <li>
-          <h3><a href="lactase-3/index.html">Lactase 3</a></h3>
-          <p class="muted">A local iPhone and iPad app currently being rebuilt and tested.</p>
-        </li>
-        <li>
-          <h3><a href="paste-again/index.html">Paste Again</a></h3>
-          <p class="muted">Searchable clipboard history for macOS, one keystroke away.</p>
-        </li>
-      </ul>
+  <header class="site-header">
+    <a class="wordmark" href="index.html">
+      <span class="wordmark-name">Nikolaj Andersen</span>
+      <span class="wordmark-rule"></span>
+      <span class="wordmark-tag">Apps for web and mobile</span>
+    </a>
+  </header>
+
+  <main class="home">
+    <h1>Tools that do things properly.</h1>
+    <p class="lead">Having worked in the field of software and product development for two decades, I’ve encountered many tools that didn’t do the job they were created for well. So I build the other kind: software for real, everyday problems, that works on day one.</p>
+
+    <section class="apps" aria-label="Apps">
+
+      <article class="app-card">
+        <div class="app-card-body">
+          <div class="tags">
+            <span class="tag">macOS</span>
+            <span class="tag-plain">Menu bar</span>
+          </div>
+          <h2>Paste Again</h2>
+          <p>Searchable clipboard history, one keystroke away. Hit the shortcut, type a few letters, press Enter — the text lands back where you were working.</p>
+          <ul class="points">
+            <li>Fuzzy search across everything you copied</li>
+            <li>Pastes straight into the app you came from</li>
+            <li>Stored locally — no sync, no analytics</li>
+          </ul>
+          <div class="actions">
+            <a class="btn" href="paste-again/index.html">Overview</a>
+            <a class="link-strong" href="https://andersennl.github.io">Mac App Store</a>
+          </div>
+        </div>
+        <div class="app-card-visual">
+          <img class="shot" src="assets/paste-again-history.png" alt="The Paste Again panel: a search field above a list of recently copied items, with the selected entry previewed beside it." width="1400" height="840" loading="lazy">
+        </div>
+      </article>
+
     </section>
-    <section class="card" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
-      <p class="muted">Questions, bug reports, or feature ideas are welcome: <a href="mailto:andersen.nikolaj@icloud.com">andersen.nikolaj@icloud.com</a></p>
-    </section>
+
+    <footer class="site-footer">
+      <p>Independent apps by Nikolaj Andersen.</p>
+      <p class="links"><a href="mailto:andersen.nikolaj@icloud.com">andersen.nikolaj@icloud.com</a><a href="https://github.com/andersennl">GitHub</a></p>
+    </footer>
   </main>
 </body>
 </html>
