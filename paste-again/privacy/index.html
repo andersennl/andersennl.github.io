@@ -62,9 +62,7 @@
     <p>The data is not used for any other purpose. It is not profiled, analysed, aggregated, sold, or used for advertising, personalisation, or training any model.</p>
 
     <h2>Where the data is stored</h2>
-    <p>Everything is stored locally on your Mac, inside the app’s sandbox container:</p>
-    <pre><code>~/Library/Containers/com.nandersen.Clipboard/Data/Library/
-    Application Support/com.nandersen.Clipboard/History/history.json</code></pre>
+    <p>Everything is stored locally on your Mac, inside the app’s own sandbox container under <code>~/Library/Containers</code>. The container folder is named after the app’s bundle identifier, and the history sits inside it under <code>Data/Library/Application Support</code>.</p>
     <p>The history is a plain JSON file. It is not encrypted by the app itself. It is protected by the standard macOS file permissions of your user account and by the App Sandbox, which prevents other sandboxed apps from reading it. If you have FileVault enabled, the file is covered by your Mac’s full-disk encryption while the disk is locked.</p>
     <p>The app runs in the macOS App Sandbox and does not request the network entitlement, so it is not able to make network connections.</p>
 
@@ -92,7 +90,7 @@
       <li><strong>Item limit.</strong> The app keeps at most the 1,000 most recent entries. When a new entry is added beyond that, the oldest entry is dropped automatically. Copying text that is already in the history moves the existing entry to the top rather than creating a duplicate.</li>
       <li><strong>No time limit.</strong> Entries are not deleted after a set period. They stay until they are pushed out by the 1,000-entry limit or until you delete them.</li>
       <li><strong>Clearing the history.</strong> Choose <strong>Clear History</strong> from the menu bar icon. This removes every entry immediately, from memory and from the stored file.</li>
-      <li><strong>Deleting everything.</strong> Uninstalling the app and deleting its container folder at <code>~/Library/Containers/com.nandersen.Clipboard</code> removes the history file and all settings.</li>
+      <li><strong>Deleting everything.</strong> Uninstalling the app and deleting its container folder in <code>~/Library/Containers</code> removes the history file and all settings.</li>
     </ul>
     <p>Because nothing is stored anywhere except your own Mac, there is no server-side copy, no backup held by the developer, and no separate deletion request to make. Deleting the data on your Mac deletes it completely. If you want data deleted, you can do it yourself in the ways described above; the developer cannot do it for you because the developer never has it.</p>
 
