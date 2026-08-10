@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Apps by Nikolaj Andersen — independent software for real, everyday problems.">
   <title>Apps by Nikolaj Andersen</title>
+  <script>try { document.documentElement.dataset.theme = sessionStorage.getItem('theme') === 'light' ? 'light' : 'dark'; } catch { document.documentElement.dataset.theme = 'dark'; }</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css?v=87303b04">
+  <link rel="stylesheet" href="assets/site.css?v=17510959">
+  <script src="assets/theme.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -17,6 +19,10 @@
       <span class="wordmark-rule"></span>
       <span class="wordmark-tag">Apps for web and mobile</span>
     </a>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">
+      <svg class="theme-toggle-icon" data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+      <span class="theme-toggle-label" data-theme-label>Light mode</span>
+    </button>
   </header>
 
   <main class="home">
@@ -47,7 +53,7 @@
                  Do not restyle or recrop the badge:
                  https://developer.apple.com/app-store/marketing/guidelines/ -->
             <a class="badge badge-inline" href="https://andersennl.github.io">
-              <img src="assets/download-on-the-mac-app-store-black.svg" alt="Download on the Mac App Store" width="156" height="40">
+              <img src="assets/download-on-the-mac-app-store-white.svg" data-theme-image data-light-src="assets/download-on-the-mac-app-store-black.svg" data-dark-src="assets/download-on-the-mac-app-store-white.svg" alt="Download on the Mac App Store" width="156" height="40">
             </a>
           </div>
         </div>
