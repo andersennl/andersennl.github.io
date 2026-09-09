@@ -412,6 +412,32 @@ main.home .lead { margin-top: 24px; max-width: 46ch; }
 .note p { margin: 0; }
 .note p + p { margin-top: 1rem; }
 
+/* Contact page */
+
+.contact-details {
+  display: grid;
+  gap: 24px;
+  max-width: 560px;
+  margin-top: clamp(36px, 6vw, 64px);
+  padding: clamp(24px, 4vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  font-style: normal;
+}
+
+.contact-details p { margin: 0; }
+.contact-label {
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contact-value { color: var(--body); }
+
 code {
   padding: .12em .4em;
   border-radius: .35rem;
