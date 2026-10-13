@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Switching from Day One to Corlys: what the import brings over, what it does not, and why you might switch.">
+  <title>Switching from Day One — Corlys</title>
+  <script>try { document.documentElement.dataset.theme = sessionStorage.getItem('theme') === 'light' ? 'light' : 'dark'; } catch { document.documentElement.dataset.theme = 'dark'; }</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/site.css?v=044c7620">
+  <script src="../../assets/theme.js" defer></script>
+</head>
+<body class="corlys">
+  <header class="site-header">
+    <a class="wordmark" href="../../index.html">
+      <span class="wordmark-name">Nikolaj Andersen</span>
+      <span class="wordmark-rule"></span>
+      <span class="wordmark-tag">Apps for web and mobile</span>
+    </a>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">
+      <svg class="theme-toggle-icon" data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+      <span class="theme-toggle-label" data-theme-label>Light mode</span>
+    </button>
+  </header>
+
+  <main class="prose">
+    <p class="eyebrow">Corlys · Import</p>
+    <h1>Switching from Day One to Corlys</h1>
+
+    <p class="lead">Corlys is a journal for iPhone, iPad and Mac. If you keep a journal in Day One and want your entries to be more than an archive, this page tells you what moves over, what does not, and why you might switch.</p>
+
+    <h2>Three reasons to switch</h2>
+    <p><strong>Your entries can leave the app.</strong> Every new entry can go to a webhook you choose: into an Obsidian daily note, a task manager, an n8n workflow. Typed or dictated, it arrives as plain text or Markdown, in your own words. <a href="../webhooks/index.html">How webhooks work</a></p>
+    <p><strong>Speech stays on the device.</strong> Dictation is transcribed on your iPhone by Apple’s speech recognition. There is no account. Entries sync through your private iCloud, and the only thing that leaves is what you set up yourself.</p>
+    <p><strong>The journal is free.</strong> Writing, dictation, transcripts, calendar, map, photos, import and webhooks cost nothing.</p>
+
+    <h2>What the import brings over</h2>
+    <p>Export your journal in Day One as <strong>JSON</strong> (Settings → Import/Export). In Corlys, open <strong>Settings → Import from Day One</strong> and pick the ZIP file or the unpacked folder.</p>
+    <table>
+      <thead>
+        <tr><th scope="col">From Day One</th><th scope="col">In Corlys</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Date and time</td><td>Kept</td></tr>
+        <tr><td>Text with formatting</td><td>Kept as headings, bold, italic, lists</td></tr>
+        <tr><td>Title</td><td>Taken from the first heading</td></tr>
+        <tr><td>Location</td><td>Kept, shown on the map</td></tr>
+        <tr><td>Photos</td><td>Kept, resized to 2048 pixels on the long side</td></tr>
+        <tr><td>Audio recordings</td><td>Kept, playable in the entry</td></tr>
+        <tr><td>Videos, PDFs</td><td>Not imported</td></tr>
+        <tr><td>Tags</td><td>Not imported</td></tr>
+        <tr><td>Weather</td><td>Not imported</td></tr>
+        <tr><td>Several journals</td><td>Imported into one journal</td></tr>
+      </tbody>
+    </table>
+    <p>You can run the import again later. Entries that are already there are skipped. Imported entries are not sent to your webhooks.</p>
+
+    <h2>What you will miss</h2>
+    <p>Corlys runs on Apple devices only. There is no Android app, no web app, no video in entries, no tags and no printed books. If you rely on one of these, Day One is the better choice for you.</p>
+
+    <h2>What you gain</h2>
+    <ul>
+      <li>A widget on the home or lock screen that starts dictation directly.</li>
+      <li>A transcript that stays word for word what you said. The app does not summarise or rewrite.</li>
+      <li>A short title for every entry, written by Apple Intelligence.</li>
+      <li>Timeline, calendar and map, the way you know them.</li>
+    </ul>
+
+    <p>Day One is a trademark of its owner. Corlys is not affiliated with Day One.</p>
+
+    <div class="page-actions">
+      <a class="btn btn-ghost" href="../index.html">← Back to Corlys</a>
+      <a class="link-strong" href="../privacy/index.html">Privacy policy</a>
+    </div>
+
+    <footer class="site-footer">
+      <p>Independent apps by Nikolaj Andersen.</p>
+      <p class="links"><a href="../../contact/index.html">Contact</a><a href="https://github.com/andersennl">GitHub</a></p>
+    </footer>
+  </main>
+</body>
+</html>

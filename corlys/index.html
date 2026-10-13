@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Corlys — a private journal for iPhone, iPad and Mac. Speak or type an entry in seconds and send it to your own systems by webhook.">
+  <title>Corlys — Nikolaj Andersen</title>
+  <script>try { document.documentElement.dataset.theme = sessionStorage.getItem('theme') === 'light' ? 'light' : 'dark'; } catch { document.documentElement.dataset.theme = 'dark'; }</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css?v=044c7620">
+  <script src="../assets/theme.js" defer></script>
+</head>
+<body class="corlys">
+  <header class="site-header">
+    <a class="wordmark" href="../index.html">
+      <span class="wordmark-name">Nikolaj Andersen</span>
+      <span class="wordmark-rule"></span>
+      <span class="wordmark-tag">Apps for web and mobile</span>
+    </a>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">
+      <svg class="theme-toggle-icon" data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+      <span class="theme-toggle-label" data-theme-label>Light mode</span>
+    </button>
+  </header>
+
+  <main>
+    <p class="eyebrow">Journal for iPhone, iPad and Mac</p>
+    <h1>Corlys</h1>
+    <p class="lead">A journal where you speak or type an entry in seconds. What you capture stays private. If you want, it arrives in your own systems without any copying.</p>
+
+    <!-- STORE LINK: the app is not released. At release, replace this block with the
+         official "Download on the App Store" badge linking to the product page. -->
+    <div class="tags status">
+      <span class="tag">Coming soon to the App Store</span>
+    </div>
+
+    <!-- SCREENSHOTS GO HERE: no screenshots exist yet. Add one wide image, for example
+         <img class="shot shot-wide" src="../assets/corlys-journal.png" alt="…" width="…" height="…">,
+         taken from the simulator. Do not use mock-ups. -->
+
+    <section class="grid grid-wide" aria-label="What it does">
+      <div class="card card-lg">
+        <h2>Flows into your second brain</h2>
+        <p class="body">Entries go to webhooks you set up yourself, as text in Markdown or as an audio file, automatically or with a tap.</p>
+        <p>That way they land in an Obsidian daily note, an n8n workflow or any other system that accepts webhooks. As many endpoints as you need.</p>
+      </div>
+      <div class="card card-lg">
+        <h2>Private and on the device</h2>
+        <p class="body">Speech is turned into text on your device by Apple’s speech recognition. Entries sync only through your private iCloud.</p>
+        <p>No account, no analytics, no ads. Only what you set up leaves your device.</p>
+      </div>
+      <div class="card card-lg">
+        <h2>Fast capture</h2>
+        <p class="body">The Home Screen widget opens the editor and starts dictation right away. Tap plus to write instead.</p>
+        <p>Writing and dictating share one editor. Spoken text appears live at the end of the entry.</p>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="The journal">
+      <div class="card">
+        <h2>Your own words</h2>
+        <p>The transcript stays word for word what you said. Corlys does not summarise or rewrite.</p>
+      </div>
+      <div class="card">
+        <h2>Timeline, calendar, map</h2>
+        <p>Entries are grouped by day, newest first. A calendar and a map show the same journal by date and by place.</p>
+      </div>
+      <div class="card">
+        <h2>Date, photos, place</h2>
+        <p>Every entry has a date and time you can change later. Add photos and, if you want, the current location.</p>
+      </div>
+      <div class="card">
+        <h2>Recordings stay</h2>
+        <p>Each dictation is kept with its entry and can be played back. One dictation lasts up to ten minutes.</p>
+      </div>
+      <div class="card">
+        <h2>Formatting</h2>
+        <p>Headings, bold, italic, underline and lists. Entries are stored and sent as Markdown.</p>
+      </div>
+      <div class="card">
+        <h2>Short titles</h2>
+        <p>Apple Intelligence gives each entry a short title: on the device, or through Apple’s Private Cloud Compute when available.</p>
+      </div>
+      <div class="card">
+        <h2>Lock</h2>
+        <p>Face ID can lock the journal at launch and whenever you come back to the app.</p>
+      </div>
+      <div class="card">
+        <h2>Siri and Shortcuts</h2>
+        <p>“Dictate entry” and “New entry” are available to Siri, Shortcuts, Spotlight and the Action button.</p>
+      </div>
+      <div class="card">
+        <h2>Import from Day One</h2>
+        <p>A JSON export brings over text, dates, places, photos and audio. <a href="switch-from-day-one/index.html">What moves over</a></p>
+      </div>
+    </section>
+
+    <section class="stack" aria-label="Coach">
+      <div class="card card-lg card-accent">
+        <h2>The coach</h2>
+        <p>If you like, a coach works with an entry without changing it. After a new entry it asks a follow-up question and suggests small steps. In the entry you can ask what it thinks, what stands out, which tasks it hears and how it would approach things, plus up to three questions of your own.</p>
+        <p>Tasks it hears can be taken on as intentions and ticked off. The coach checks in later on how it went.</p>
+        <p>The coach uses Apple Intelligence: on the device, or through Apple’s Private Cloud Compute when available. It does not write texts for publishing and is not a therapist. You can switch it off in the settings.</p>
+      </div>
+    </section>
+
+    <section class="grid grid-wide" aria-label="Pricing">
+      <div class="card card-lg">
+        <h2>The journal is free</h2>
+        <p class="body">No limits, no account.</p>
+        <p>Capture, dictation, transcripts, titles, journal, calendar, map, photos, location, iCloud sync, lock, widgets, shortcuts, Day One import and all text and audio webhooks.</p>
+      </div>
+      <div class="card card-lg">
+        <h2>Coach subscription</h2>
+        <p class="body">€39.99 a year with a 14-day free trial, or €4.99 a month.</p>
+        <p>One subscription covers everything the coach does. The first ten coach answers are free. Subscriptions are handled by Apple.</p>
+      </div>
+    </section>
+
+    <section class="grid grid-wide" aria-label="More about Corlys">
+      <div class="card">
+        <h2>Connect Corlys to n8n</h2>
+        <p>What a webhook receives, and a ready workflow that writes entries into an Obsidian daily note. <a href="webhooks/index.html">Webhooks and example</a></p>
+      </div>
+      <div class="card">
+        <h2>Switching from Day One</h2>
+        <p>What the import brings over, what it leaves behind, and what you will miss. <a href="switch-from-day-one/index.html">Read the guide</a></p>
+      </div>
+      <div class="card">
+        <h2>Privacy</h2>
+        <p>What stays on the device, what goes through iCloud, and what Apple processes. <a href="privacy/index.html">Privacy policy</a></p>
+      </div>
+    </section>
+
+    <div class="page-actions">
+      <a class="btn btn-ghost" href="../index.html">← All apps</a>
+      <a class="link-strong" href="privacy/index.html">Privacy policy</a>
+    </div>
+
+    <footer class="site-footer">
+      <p>Independent apps by Nikolaj Andersen.</p>
+      <p class="links"><a href="../contact/index.html">Contact</a><a href="https://github.com/andersennl">GitHub</a></p>
+    </footer>
+  </main>
+</body>
+</html>

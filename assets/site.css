@@ -466,6 +466,45 @@ kbd {
   font-size: .9em;
 }
 
+/* Prose extras: numbered steps and tables */
+
+.prose ol { margin: 1rem 0 0; padding-left: 1.25rem; color: var(--body); }
+
+.prose table { width: 100%; margin-top: 1.25rem; border-collapse: collapse; font-size: .9375rem; }
+.prose th,
+.prose td { padding: .625rem .75rem .625rem 0; border-bottom: 1px solid var(--line); color: var(--body); text-align: left; vertical-align: top; }
+.prose th { color: var(--text); font-weight: 600; }
+.prose td code { word-break: normal; white-space: nowrap; }
+
+/* Corlys: the app's own accent, Glut-Koralle (#E8643A), replaces the site accent on its
+   pages and on its home page card. The light theme uses a darker shade of the same hue
+   for text, because #E8643A on the light background falls short of 4.5:1. */
+
+.corlys {
+  --accent: #e8643a;
+  --accent-dark: #f08a66;
+  --accent-tint: rgba(232, 100, 58, .12);
+  --accent-line: rgba(232, 100, 58, .4);
+  --accent-card: rgba(232, 100, 58, .1);
+  --accent-card-text: #f1cfc2;
+}
+
+html[data-theme="light"] .corlys {
+  --accent: #b8431c;
+  --accent-dark: #8f3113;
+  --accent-tint: rgba(232, 100, 58, .1);
+  --accent-line: rgba(232, 100, 58, .4);
+  --accent-card: rgba(232, 100, 58, .07);
+  --accent-card-text: #5c3a2c;
+}
+
+.corlys .tag { background: var(--accent-tint); }
+.status { margin-top: 28px; }
+
+.corlys-visual { align-content: center; gap: 12px; background: #e8643a; text-align: center; }
+.corlys-visual strong { color: #fff; font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; letter-spacing: -.03em; line-height: 1.05; }
+.corlys-visual span { color: #2a1208; font-size: .9375rem; }
+
 /* Footer */
 
 .site-footer {

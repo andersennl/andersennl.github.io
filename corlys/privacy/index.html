@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy policy for Corlys, a journal app. No account, no analytics, on-device transcription, sync through your private iCloud.">
+  <title>Privacy Policy — Corlys</title>
+  <script>try { document.documentElement.dataset.theme = sessionStorage.getItem('theme') === 'light' ? 'light' : 'dark'; } catch { document.documentElement.dataset.theme = 'dark'; }</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/site.css?v=044c7620">
+  <script src="../../assets/theme.js" defer></script>
+</head>
+<body class="corlys">
+  <header class="site-header">
+    <a class="wordmark" href="../../index.html">
+      <span class="wordmark-name">Nikolaj Andersen</span>
+      <span class="wordmark-rule"></span>
+      <span class="wordmark-tag">Apps for web and mobile</span>
+    </a>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">
+      <svg class="theme-toggle-icon" data-theme-icon viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+      <span class="theme-toggle-label" data-theme-label>Light mode</span>
+    </button>
+  </header>
+
+  <main class="prose">
+    <p class="eyebrow">Corlys</p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 13 October 2026</p>
+
+    <p class="lead">Corlys is a journal app in which you speak or type entries. It is developed by Nikolaj Andersen, an individual developer.</p>
+
+    <div class="note">
+      <p><strong>The short version:</strong> There is no account, no analytics, no tracking and no advertising. Your journal syncs only through your own private iCloud. The developer receives none of your data. Entries leave your device only to the webhook addresses you set up yourself, and, for titles and the coach, as text to Apple’s Private Cloud Compute when it is available.</p>
+    </div>
+
+    <h2>What the developer receives</h2>
+    <p>Nothing. Corlys has no developer server. The app contains no analytics, no tracking, no advertising and no third-party SDKs. There is no sign-up and no login.</p>
+
+    <h2>Your journal and iCloud</h2>
+    <p>Entries, audio recordings, photos and, if you add one, the location of an entry are stored on your device. They sync between your devices only through your private iCloud, using the private database of Apple’s CloudKit. The developer has no access to it.</p>
+
+    <h2>Speech recognition</h2>
+    <p>Speech is turned into text on your device, using Apple’s speech recognition. Audio is never sent to a language model.</p>
+
+    <h2>Titles and the coach</h2>
+    <p>Corlys uses Apple Intelligence to give an entry a short title and for the coach. This runs on your device, or through Apple’s Private Cloud Compute when it is available.</p>
+    <ul>
+      <li><strong>When Private Cloud Compute is used,</strong> the text of the entry is processed by Apple’s Private Cloud Compute. Apple states that it does not retain this data.</li>
+      <li><strong>Audio is not part of this.</strong> Only text is processed.</li>
+      <li><strong>The coach is optional.</strong> You can switch it off in the settings.</li>
+    </ul>
+
+    <h2>Webhooks</h2>
+    <p>You can set up webhook endpoints in the app. Corlys then sends entries, as text or as an audio file, to those addresses and to no others. Nothing is sent to a webhook unless you have set one up.</p>
+    <ul>
+      <li>An endpoint can have an optional bearer token. The token is stored in the keychain of your device.</li>
+      <li>What the receiver does with an entry is outside the app. You choose the receiver, and its handling of your data is your responsibility.</li>
+    </ul>
+
+    <h2>Permissions the app asks for</h2>
+    <p>All of these are optional. The app asks only when you use the feature.</p>
+    <ul>
+      <li><strong>Microphone</strong>, to record a dictation.</li>
+      <li><strong>Speech recognition</strong>, to turn the dictation into text on the device.</li>
+      <li><strong>Camera and photos</strong>, to add pictures to an entry.</li>
+      <li><strong>Location</strong>, only when you add the current place to an entry.</li>
+      <li><strong>Face ID</strong>, if you switch on the lock for the journal.</li>
+    </ul>
+
+    <h2>Subscriptions</h2>
+    <p>Subscriptions are handled by Apple. The developer sees no payment data.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If the app’s data handling changes, this page will be updated and the “Last updated” date above will change. The version of this policy that applies is the one published here.</p>
+
+    <h2>Contact</h2>
+    <p>Corlys is developed by Nikolaj Andersen. For questions about this policy or about the app’s handling of data, write to <a href="mailto:andersen.apps@icloud.com?subject=Corlys%20Privacy">andersen.apps@icloud.com</a>. Further details are on the <a href="../../contact/index.html">contact page</a>.</p>
+
+    <div class="page-actions">
+      <a class="btn btn-ghost" href="../index.html">← Back to Corlys</a>
+    </div>
+
+    <footer class="site-footer">
+      <p>Independent apps by Nikolaj Andersen.</p>
+      <p class="links"><a href="../../contact/index.html">Contact</a><a href="https://github.com/andersennl">GitHub</a></p>
+    </footer>
+  </main>
+</body>
+</html>
