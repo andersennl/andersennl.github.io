@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Connect Corlys to n8n: the webhook payloads for text and audio, and a ready workflow that appends entries to an Obsidian daily note.">
-  <title>Connect Corlys to n8n — Nikolaj Andersen</title>
+  <meta name="description" content="Technical reference for Corlys webhooks: the requests your server receives for text and audio endpoints.">
+  <title>Corlys webhooks — Nikolaj Andersen</title>
   <script>try { document.documentElement.dataset.theme = sessionStorage.getItem('theme') === 'light' ? 'light' : 'dark'; } catch { document.documentElement.dataset.theme = 'dark'; }</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,20 +27,20 @@
 
   <main class="prose">
     <p class="eyebrow">Corlys · Webhooks</p>
-    <h1>Connect Corlys to n8n</h1>
+    <h1>What your server receives</h1>
 
-    <p class="lead">Corlys sends journal entries to webhook addresses you set up yourself. This page describes what arrives and gives you a ready n8n workflow that appends each entry to an Obsidian daily note.</p>
+    <p class="lead">Corlys sends journal entries to webhook addresses you set up yourself. This page describes the requests, so you can build a receiver in whatever language or tool you like.</p>
 
     <h2>Endpoints</h2>
     <p>You can add as many endpoints as you need. Each one has an address, an optional token, a content type and a way of sending:</p>
     <ul>
-      <li><strong>Content:</strong> the entry as text, or the recording as an audio file. Text is the default, for typed and dictated entries alike. Audio is meant for receivers that want to transcribe themselves.</li>
+      <li><strong>Content:</strong> the entry as text, or each recording as an audio file. Text is the default, for typed and dictated entries alike. Audio is meant for receivers that want to transcribe themselves.</li>
       <li><strong>Sending:</strong> automatically, or only when you tap send in the entry.</li>
     </ul>
-    <p>Photos and locations are not sent. Entries imported from Day One are not sent either.</p>
+    <p>Every request is a <code>POST</code> to the address you entered. Photos and locations are not sent. Entries imported from Day One are not sent automatically.</p>
 
     <h2>Text endpoints</h2>
-    <p>A text endpoint receives one <code>POST</code> per new entry, as soon as you close it. The body is JSON:</p>
+    <p>A text endpoint receives one request per new entry, when you close the editor and the entry has its title. However many dictations went into the entry, it arrives once, as a whole. The body is JSON (<code>Content-Type: application/json</code>):</p>
 <pre><code>{
   "id": "5B0C7C0E-6B1F-4F0B-9C55-2F3E7A0D9A11",
   "title": "Walk by the harbour",
@@ -52,7 +52,7 @@
         <tr><th scope="col">Field</th><th scope="col">Content</th></tr>
       </thead>
       <tbody>
-        <tr><td><code>id</code></td><td>Stays the same when you send an entry again. Use it to avoid duplicates.</td></tr>
+        <tr><td><code>id</code></td><td>UUID of the entry. Stays the same when you send an entry again, so you can replace instead of duplicate.</td></tr>
         <tr><td><code>title</code></td><td>The short title the app gave the entry.</td></tr>
         <tr><td><code>text</code></td><td>The entry in your own words, typed or dictated. Formatted entries arrive as Markdown; underline arrives as <code>&lt;u&gt;</code>.</td></tr>
         <tr><td><code>createdAt</code></td><td>Date and time of the entry in ISO 8601, in UTC. You can change it in the app.</td></tr>
@@ -61,63 +61,53 @@
     <p>The app transcribes on the device, so a text endpoint needs no audio and no speech service.</p>
 
     <h2>Audio endpoints</h2>
-    <p>An audio endpoint receives one <code>POST</code> per dictation as <code>multipart/form-data</code>. Each dictation is sent on its own.</p>
+    <p>An audio endpoint receives one request per dictation as <code>multipart/form-data</code>. If an entry has three dictations, three requests arrive, one after another in the order they were recorded, when you close the editor. A recording is sent even if its transcription failed.</p>
     <table>
       <thead>
         <tr><th scope="col">Field</th><th scope="col">Content</th></tr>
       </thead>
       <tbody>
-        <tr><td><code>data</code></td><td>The recording as an M4A file (<code>audio/mp4</code>). n8n’s Webhook node exposes it as the binary property <code>data</code>.</td></tr>
-        <tr><td><code>createdAt</code></td><td>Date and time in ISO 8601.</td></tr>
+        <tr><td><code>createdAt</code></td><td>Date and time the recording started, in ISO 8601, in UTC.</td></tr>
         <tr><td><code>duration</code></td><td>Length of the recording in seconds, with one decimal.</td></tr>
-        <tr><td><code>language</code></td><td>Language code of the dictation.</td></tr>
+        <tr><td><code>language</code></td><td>Language of the dictation as set in the app, for example <code>de</code> or <code>da_DK</code>.</td></tr>
+        <tr><td><code>data</code></td><td>The recording as a file, normally M4A (<code>audio/mp4</code>).</td></tr>
       </tbody>
     </table>
-    <p>A dictation lasts up to ten minutes.</p>
+    <p>The file is named after the time the recording started, in UTC to the millisecond: <code>YYYY-MM-DD_HH-MM-SS-mmmZ</code>, for example <code>2026-10-19_07-42-10-482Z.m4a</code>. Sorted by name, the recordings of an entry are in the order they were spoken, and no two share a name. The name contains no colons, slashes or spaces, so you can save it as it is on Windows, macOS and Linux.</p>
+    <p>A request looks like this (the boundary changes with every request):</p>
+<pre><code>POST /your/path HTTP/1.1
+Authorization: Bearer &lt;token&gt;
+Content-Type: multipart/form-data; boundary=AudioToStructure-…
+
+--AudioToStructure-…
+Content-Disposition: form-data; name="createdAt"
+
+2026-10-19T07:42:10Z
+--AudioToStructure-…
+Content-Disposition: form-data; name="duration"
+
+48.3
+--AudioToStructure-…
+Content-Disposition: form-data; name="language"
+
+da_DK
+--AudioToStructure-…
+Content-Disposition: form-data; name="data"; filename="2026-10-19_07-42-10-482Z.m4a"
+Content-Type: audio/mp4
+
+&lt;binary audio&gt;
+--AudioToStructure-…--</code></pre>
+    <p>A dictation lasts up to ten minutes. The app waits up to 120 seconds for an audio request and up to 30 seconds for a text request.</p>
 
     <h2>Token and response</h2>
     <ul>
-      <li>If you set a token for an endpoint, it arrives as <code>Authorization: Bearer &lt;token&gt;</code>. The token is stored in the keychain of your device.</li>
-      <li>Any <code>2xx</code> response counts as sent. For other codes the app shows the <code>message</code> field of a JSON response.</li>
-      <li>The result of the last attempt is shown in the entry, where you can also send again.</li>
+      <li>If you set a token for an endpoint, it arrives as <code>Authorization: Bearer &lt;token&gt;</code>. Without a token there is no <code>Authorization</code> header. The token is stored in the keychain of your device.</li>
+      <li>Any <code>2xx</code> response counts as sent. For other codes the app shows the <code>message</code> field of a JSON response, for example <code>{"message": "text is empty"}</code>.</li>
+      <li>The app does not retry on its own. The result of the last attempt is shown in the entry, where you can send again.</li>
     </ul>
 
-    <h2>Reaching n8n from your phone</h2>
+    <h2>Reaching your server</h2>
     <p>The app sends to <code>https://</code> addresses. Plain <code>http://</code> is accepted only for Tailscale addresses (<code>100.64.0.0/10</code>), so a home server without a certificate works through Tailscale.</p>
-
-    <h2>Example: Obsidian daily note</h2>
-    <p>This workflow appends each entry to the Obsidian daily note of the day it was written. It needs a self-hosted n8n that can see your vault as a folder, for example a Docker volume <code>-v /path/to/vault:/files/vault</code>.</p>
-
-    <div class="page-actions" style="margin-top: 1.5rem;">
-      <a class="btn" href="n8n-obsidian-daily-note.json" download>Download the workflow (JSON)</a>
-    </div>
-
-    <ol>
-      <li>In n8n, choose <strong>Workflows → Import from file</strong> and pick <code>n8n-obsidian-daily-note.json</code>.</li>
-      <li>Open <strong>Prepare entry</strong> and set <code>DAILY_NOTES_DIR</code> (default <code>/files/vault/Daily</code>) and <code>HEADING</code> (default <code>## Journal</code>). Daily notes are expected as <code>YYYY-MM-DD.md</code>.</li>
-      <li>Create a <strong>Header Auth</strong> credential with the name <code>Authorization</code> and the value <code>Bearer &lt;a long random token&gt;</code>. Select it in <strong>Entry webhook</strong>.</li>
-      <li>Set the workflow timezone in the workflow settings. It decides which day an entry written around midnight belongs to.</li>
-      <li>Activate the workflow and copy the production URL of the webhook.</li>
-      <li>In Corlys: <strong>Settings → Webhooks → Add endpoint</strong>, content <strong>Transcript</strong>, sending <strong>automatic</strong>, the URL and the token from step 3.</li>
-    </ol>
-
-    <p>The file contains no credentials. The folder and the heading in it are defaults; change them to match your vault.</p>
-
-    <h3>What lands in the note</h3>
-<pre><code>## Journal
-
-### 09:15 · Walk by the harbour
-&lt;!-- entry:5b0c7c0e-6b1f-4f0b-9c55-2f3e7a0d9a11 --&gt;
-
-Cold coffee, **great** light.</code></pre>
-    <p>The workflow only appends. It never rewrites what is already in the note, and it creates the note if it does not exist yet. The comment line is how it recognises an entry it has already written, so sending the same entry twice does not add it twice.</p>
-
-    <h3>What the workflow answers</h3>
-    <ul>
-      <li><code>201</code> when the entry was written.</li>
-      <li><code>200</code> when the entry was already in the note.</li>
-      <li><code>400</code> with a <code>message</code> when the field <code>text</code> is missing or empty.</li>
-    </ul>
 
     <div class="page-actions">
       <a class="btn btn-ghost" href="../index.html">← Back to Corlys</a>
